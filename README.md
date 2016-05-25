@@ -1,8 +1,16 @@
 # jupyterhub-customfieldurlauthenticator
 
 Authenticator for [JupyterHub](http://github.com/jupyter/jupyterhub/)
-that allows authentication against a url, but also checks the response for a  
+that allows authentication against a url, but also checks the response for  
 against a configurable set of fields from the config object.
+
+All keys in the config dict need to be in the response for the authentication
+to succeed, and the values for each key need to match what comes back in the
+response.
+
+In addition to the custom fields dict, the username is also retrieved from the
+response. If all custom fields validate, and the username is in the response,
+the authentication will succeed.
 
 ## Usage
 After installation, you can then use the authenticator by adding the following
@@ -16,6 +24,11 @@ c.CustomFieldUrlAuthenticator.server_port = [port]
 # This does no magic with slashes. If you require a trailing one and it's not
 # provided, this will error now. Same with leading slash (NEEDED FOR NOW)
 c.CustomFieldUrlAuthenticator.login_route = '[/path/to/login/service]'
+
+# custom response fields to include in validation
+c.CustomFieldUrlAuthenticator.custom_fields = {
+    'key_to_check_during_auth': value_key_should_have, 
+}
 ```
 
 ## Installation

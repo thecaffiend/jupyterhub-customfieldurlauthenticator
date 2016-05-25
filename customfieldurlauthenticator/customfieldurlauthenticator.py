@@ -4,6 +4,7 @@ from tornado import gen
 from traitlets import (
     Unicode,
     Int,
+    Dict,
 )
 
 import urllib, urllib.request

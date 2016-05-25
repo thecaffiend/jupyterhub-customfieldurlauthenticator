@@ -1,0 +1,3 @@
+from configfieldurlauthenticator.configfieldurlauthenticator import CustomFieldUrlAuthenticator
+
+__all__ = [CustomFieldUrlAuthenticator]

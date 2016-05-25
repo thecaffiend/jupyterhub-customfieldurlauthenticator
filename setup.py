@@ -9,14 +9,14 @@ requirements = [str(ir.req) for ir in install_reqs]
 __version__ = '0.1.0'
 
 setup(
-    name='jupyterhub-configfieldurlauthenticator',
+    name='jupyterhub-customfieldurlauthenticator',
     version=__version__,
     description='Authenticator for JupyterHub that authenticates against a remote URL and allows customization of the fields checked in the response',
     long_description=open('README.md').read(),
     keywords='jupyterhub jupyter jupyternotebook authentication',
     author='L. Drew Pihera',
     author_email='dpihera@gmail.com',
-    url='https://github.com/thecaffiend/jupyterhub-configfieldurlauthenticator',
+    url='https://github.com/thecaffiend/jupyterhub-customfieldurlauthenticator',
     license='MIT',
     packages=find_packages(),
     install_requires=requirements,

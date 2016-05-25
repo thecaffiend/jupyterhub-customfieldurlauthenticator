@@ -1,2 +1,2 @@
 jupyterhub>=0.5.0
-git+https://github.com/thecaffiend/jupyterhub-urlauthenticator#egg=jupyterhub-urlauthenticator
+git+https://github.com/thecaffiend/jupyterhub-urlauthenticator#egg=jupyterhub_urlauthenticator

@@ -27,13 +27,13 @@ c.CustomFieldUrlAuthenticator.login_route = '[/path/to/login/service]'
 
 # custom response fields to include in validation
 c.CustomFieldUrlAuthenticator.custom_fields = {
-    'key_to_check_during_auth': value_key_should_have, 
+    'key_to_check_during_auth': value_key_should_have,
 }
 ```
 
 ## Installation
 ```
-pip install [-e] git+git://github.com/theaffiend/jupyterhub-customfieldurlauthenticator.git
+pip install [-e] git+git://github.com/thecaffiend/jupyterhub-customfieldurlauthenticator.git
 ```
 depends on jupyterhub-urlauthenticator
 

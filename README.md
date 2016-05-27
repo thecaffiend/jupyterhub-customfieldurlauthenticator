@@ -25,17 +25,17 @@ c.CustomFieldUrlAuthenticator.server_port = [port]
 # provided, this will error now. Same with leading slash (NEEDED FOR NOW)
 c.CustomFieldUrlAuthenticator.login_route = '[/path/to/login/service]'
 
-# custom response fields to include in validation
-c.CustomFieldUrlAuthenticator.custom_fields = {
-    'key_to_check_during_auth': value_key_should_have,
-}
+# custom response fields to include in validation. this will check the response
+# for ['some_key'] == True for example.
+c.CustomFieldUrlAuthenticator.custom_fields = dict(some_key=True)
+
 ```
 
 ## Installation
 ```
 pip install [-e] git+git://github.com/thecaffiend/jupyterhub-customfieldurlauthenticator.git
 ```
-depends on jupyterhub-urlauthenticator
+depends on [jupyterhub-urlauthenticator](http://github.com/thecaffiend/jupyterhub-urlauthenticator)
 
 
 ## TODO

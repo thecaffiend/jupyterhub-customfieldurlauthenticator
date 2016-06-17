@@ -23,17 +23,6 @@ class CustomFieldUrlAuthenticator(UrlAuthenticator):
         help='mapping of fields to check from the http response to values to check for during authentication.' # LEFTOFF
     )
 
-    @gen.coroutine
-    def authenticate(self, handler, data):
-        """
-        Authenticate against a URL that provisdes an authentication service.
-        Args:
-            handler - the RequestHandler from Jupyter
-            data - the data from the hub login form.
-        """
-        resp = self.do_request(data)
-        return self.process_response(resp)
-
     def process_response(self, resp):
         """
         do whatever checks are necessary against the response to determine if
@@ -62,24 +51,3 @@ class CustomFieldUrlAuthenticator(UrlAuthenticator):
                 # found a bad value, not valid
                 return False
         return True
-
-    @staticmethod
-    def create_request(url, data):
-        """
-        Make a Request object to hit the URL. Fills in some boilerplate stuff
-        for a Request object.
-
-        url is the full url (constructed from address, port, and route values)
-        data is the data from a POST to the login form of the hub
-        """
-        r = None
-
-        conttype = 'application/json; charset=UTF-8'
-        jdata = json.dumps(data).encode('utf-8')
-
-        headers = {
-            'Content-Type': conttype,
-            'Content-Length': len(jdata),
-        }
-
-        return urllib.request.Request(url, jdata, headers)

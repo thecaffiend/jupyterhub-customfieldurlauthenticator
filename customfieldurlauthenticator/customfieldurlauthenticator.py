@@ -29,11 +29,12 @@ class CustomFieldUrlAuthenticator(UrlAuthenticator):
         the user should be authenticated. in this case, we also want to check
         against the fields in the configuration
         """
-        d = json.loads(resp.decode())
-        username = d.get('username', None)
+        if resp:
+            d = json.loads(resp.decode())
+            username = d.get('username', None)
 
-        if username and self.validate_custom_fields(d):
-            return username
+            if username and self.validate_custom_fields(d):
+                return username
         return None
 
     def validate_custom_fields(self, d):
